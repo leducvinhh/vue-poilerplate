@@ -8,7 +8,13 @@ import eslintConfigPrettier from 'eslint-config-prettier'
 export default [
   ...tseslint.configs.recommended,
   ...pluginVue.configs['flat/essential'],
-  { files: ['**/*.{js,mjs,cjs,ts,vue}'] },
+  {
+    files: ['**/*.{js,mjs,cjs,ts,vue}'],
+    rules: {
+      'no-console': 'error',
+      'vue/multi-word-component-names': 'off',
+    },
+  },
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   eslintConfigPrettier,
